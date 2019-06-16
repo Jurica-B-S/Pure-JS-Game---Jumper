@@ -21,7 +21,7 @@ class GameWorld{
 		this._mesh = [];
 		this._enemy_mesh = [];
 		this._levels = levels;
-		this.createWorld(levels[1]);
+		this.createWorld(levels[2]);
 		this._g_force = g_force;
 		this._score = document.getElementById('score').childNodes[3];
 
@@ -61,7 +61,10 @@ class GameWorld{
 
 	          let width = parseInt(PLATFORM_DIMENSION * platform.number_of_segments / MESH_DIMENSION);
 	          let height = parseInt(PLATFORM_DIMENSION / MESH_DIMENSION);
-						if(platform.x * PLATFORM_DIMENSION + PLATFORM_DIMENSION * platform.number_of_segments < this.world_width){
+						if(platform.x * PLATFORM_DIMENSION + PLATFORM_DIMENSION * platform.number_of_segments > this.world_width){
+							  let useful_number_of_platforms = parseInt((this.world_width-platform.x * PLATFORM_DIMENSION + PLATFORM_DIMENSION * platform.number_of_segments)/PLATFORM_DIMENSION);
+								width = parseInt(PLATFORM_DIMENSION * useful_number_of_platforms/ MESH_DIMENSION);
+						}
 						//check if platform goes out of the world widths
 						if(left + width > parseInt(this.world_width / MESH_DIMENSION)){
 							width = parseInt(this.world_width / MESH_DIMENSION) - left - 5;
@@ -74,7 +77,7 @@ class GameWorld{
 	          }
 	          addToHtmlCss("platform",counter_of_items, top, left, width, this.world_height, sheet);
 	          counter_of_items++;
-					}
+
         }
       }
       if(item === 'pikes'){

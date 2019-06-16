@@ -384,9 +384,9 @@ export class GameCharachter{
 					collision.coin = 1;
 					//console.log("coin detected");
 		 }
-	    if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical] > 0
-	       || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical] > 0
-	       || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical] > 0){
+	    if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical] === 1
+	       || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical] === 1
+	       || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical] === 1){
 	         collision.down = 1;
 	         collision.down_px = 0;
 	         if(this.world._mesh[x + MESH_DIMENSION * 2][y + player_collison_points_vertical] === 2
@@ -397,9 +397,9 @@ export class GameCharachter{
 
 	    }
 
-	    else if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical + 1] > 0
-	      || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical + 1] > 0
-	      || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical + 1] > 0){
+	    else if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical + 1] === 1
+	      || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical + 1] === 1
+	      || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical + 1] === 1){
 	        collision.down = 1;
 	        collision.down_px = MESH_DIMENSION;
 	        if(this.world._mesh[x + MESH_DIMENSION * 2][y + player_collison_points_vertical +1] === 2
@@ -409,9 +409,9 @@ export class GameCharachter{
 	           }
 
 	    }
-	    else if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical + 2] > 0
-	     || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical + 2] > 0
-	     || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical + 2] > 0){
+	    else if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical + 2] === 1
+	     || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical + 2] === 1
+	     || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical + 2] === 1){
 	       collision.down = 1;
 	       collision.down_px = MESH_DIMENSION * 2;
 	       if(this.world._mesh[x + MESH_DIMENSION * 2][y + player_collison_points_vertical + 2] === 2
@@ -421,9 +421,9 @@ export class GameCharachter{
 	          }
 
 	    }
-	    else if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical + 3] > 0
-	    || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical + 3] > 0
-	    || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical + 3] > 0){
+	    else if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical + 3] === 1
+	    || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical + 3] === 1
+	    || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical + 3] === 1){
 	      collision.down = 1;
 	      collision.down_px = MESH_DIMENSION * 3;
 	      if(this.world._mesh[x + MESH_DIMENSION * 2][y + player_collison_points_vertical + 3] === 2
@@ -432,9 +432,9 @@ export class GameCharachter{
 	           if(this._player_dead === false) collision.pikes = 1;
 	         }
 	    }
-	    else if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical + 4] > 0
-	    || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical + 4] > 0
-	    || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical + 4] > 0){
+	    else if(this.world._mesh[x + MESH_DIMENSION][y + player_collison_points_vertical + 4] === 1
+	    || this.world._mesh[x + player_collison_points_horizontal - MESH_DIMENSION][y + player_collison_points_vertical + 4] === 1
+	    || this.world._mesh[x + parseInt(player_collison_points_horizontal / 2) ][y + player_collison_points_vertical + 4] === 1){
 	      collision.down = 1;
 	      collision.down_px = MESH_DIMENSION * 4;
 	      if(this.world._mesh[x + MESH_DIMENSION * 2][y + player_collison_points_vertical + 4] === 2

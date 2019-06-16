@@ -15,24 +15,31 @@ console.log(game_width);
 
 
 let level_design = [
-	 {'platforms':[{x:0, y:9, number_of_segments:parseInt(game_width / PLATFORM_DIMENSION)},
-		 {x:13, y:5, number_of_segments:3}, {x:20, y:5, number_of_segments:5}],
+	 {'platforms':[{x:0, y:9, number_of_segments:4},{x:13, y:5, number_of_segments:3},
+		             {x:20, y:5, number_of_segments:5},{x:7, y:9, number_of_segments:3},
+								 {x:9, y:9, number_of_segments:6},{x:19, y:9, number_of_segments:11},
+								 {x:33, y:9, number_of_segments:parseInt(game_width / PLATFORM_DIMENSION)}],
 	 'pikes':[{x:4, y:9, number_of_segments:3},{x:15, y:9, number_of_segments:4},{x:30, y:9, number_of_segments:3}],
 	 'dragons':[{x:20, y:50}],
 	 'goblins':[{x:200, y:152}],
 	 'coins':[{x:70, y:162},{x:160, y:162},{x:225, y:162}]
    },
-	 {'platforms':[{x:0, y:9, number_of_segments:7}, {x:9, y:9, number_of_segments:3}, {x:20, y:9, number_of_segments:parseInt(game_width / PLATFORM_DIMENSION) - 20},
-	 {x:11, y:5, number_of_segments:3}, {x:15, y:5, number_of_segments:4}],
+	 {'platforms':[{x:0, y:9, number_of_segments:4},{x:6, y:9, number_of_segments:6}, {x:9, y:9, number_of_segments:3},
+	{x:33, y:9, number_of_segments:parseInt(game_width / PLATFORM_DIMENSION) - 20},
+	 {x:11, y:5, number_of_segments:3},{ x:23, y:9, number_of_segments:7}, {x:18, y:5, number_of_segments:4}],
 	 'pikes':[{x:4, y:9, number_of_segments:2},{x:15, y:9, number_of_segments:2},{x:30, y:9, number_of_segments:3}],
 	 'dragons':[{x:300, y:50}],
-	 'goblins':[{x:400, y:152}]
+	 'goblins':[{x:400, y:152}],
+	  'coins':[{x:200, y:162},{x:340, y:80},{x:420, y:20}]
  	},
-	 {'platforms':[{x:0, y:9, number_of_segments:5}, {x:9, y:9, number_of_segments:1},{x:11, y:9, number_of_segments:1},{x:13, y:9, number_of_segments:1}, {x:20, y:9, number_of_segments:parseInt(game_width / PLATFORM_DIMENSION) - 20},
-	 {x:2, y:5, number_of_segments:3}, {x:15, y:5, number_of_segments:4}],
+	 {'platforms':[{x:0, y:9, number_of_segments:5}, {x:9, y:9, number_of_segments:1},
+		 {x:11, y:9, number_of_segments:1},{x:13, y:9, number_of_segments:1},{x:25, y:9, number_of_segments:5},
+		 {x:34, y:9, number_of_segments:parseInt(game_width / PLATFORM_DIMENSION) - 20},{x:2, y:5, number_of_segments:3},
+		 {x:15, y:5, number_of_segments:5},{x:27, y:5, number_of_segments:4}],
 	 'pikes':[{x:10, y:9, number_of_segments:1},{x:15, y:9, number_of_segments:3},{x:30, y:9, number_of_segments:4}],
 	 'dragons':[{x:600, y:50}],
-	 'goblins':[{x:500, y:152}]
+	 'goblins':[{x:500, y:152}],
+	  'coins':[{x:100, y:162},{x:160, y:70}, {x:250, y:50},{x:325, y:162},{x:525, y:162},{x:725, y:82}]
 	 }
 ];
 

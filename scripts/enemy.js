@@ -167,7 +167,7 @@ class Goblin extends Enemy{
 	updateMeshPosition(){
 		let mesh = this.world._enemy_mesh;
 		let left = parseInt(this._x_position / MESH_DIMENSION);
-		let top = parseInt(this._y_position / MESH_DIMENSION) + 1;
+		let top = parseInt(this._y_position / MESH_DIMENSION);
 		let width = parseInt(this._width / MESH_DIMENSION);
 		let height = parseInt(this._height / MESH_DIMENSION);
 		//mesh editing
@@ -180,7 +180,7 @@ class Goblin extends Enemy{
 					}
 				}
 				for(let i=left - parseInt(this._x_speed / MESH_DIMENSION) ; i <= left  ; i++){
-					for(let j=top; j <  top  + height; j++){
+					for(let j=top; j <=  top  + height; j++){
 						if(i > 0) mesh[i][j] = 0;
 					}
 				}
@@ -193,18 +193,18 @@ class Goblin extends Enemy{
 						////console.log(i,j,mesh[i][j], this.world._enemy_mesh[i][j]);
 					}
 				}
-				for(let i=left + width; i < left + width + parseInt(this._x_speed / MESH_DIMENSION) ; i++){
-					for(let j=top; j <  top + height; j++){
+				for(let i=left + width; i <= left + width + parseInt(this._x_speed / MESH_DIMENSION) ; i++){
+					for(let j=top; j <=  top + height; j++){
 						if(i > 0) mesh[i][j] = 0;
 					}
 				}
 			}
 		}
 	}
-	updateMeshPositionToZero(){
+	updateMeshPositionToZero(callback){
 		let mesh = this.world._enemy_mesh;
 		let left = parseInt(this._x_position / MESH_DIMENSION);
-		let top = parseInt(this._y_position / MESH_DIMENSION) + 1;
+		let top = parseInt(this._y_position / MESH_DIMENSION);
 		let width = parseInt(this._width / MESH_DIMENSION);
 		let height = parseInt(this._height / MESH_DIMENSION);
 		//mesh editing
@@ -212,31 +212,35 @@ class Goblin extends Enemy{
 		if(this._x_position > -60 && this._x_position < this.world.world_width + 60){
 		//delete mesh history
 			if(this.direction === 1){
-				for(let i=left; i < left + width; i++){
-					for(let j=top; j < top + height; j++){
+				for(let i=left; i <= left + width; i++){
+					for(let j=top; j <= top + height; j++){
 						mesh[i][j] = 0;
 					}
 				}
 				for(let i=left - parseInt(this._x_speed / MESH_DIMENSION) ; i <= left  ; i++){
-					for(let j=top; j <  top  + height; j++){
+					for(let j=top; j <=  top  + height; j++){
 						if(i > 0) mesh[i][j] = 0;
 					}
 				}
 			}
 			if(this.direction === -1){
-				for(let i=left; i < left + width ; i++){
-					for(let j=top; j < top + height; j++){
+				for(let i=left; i <= left + width ; i++){
+					for(let j=top; j <= top + height; j++){
 						mesh[i][j] = 0;
 
 						////console.log(i,j,mesh[i][j], this.world._enemy_mesh[i][j]);
 					}
 				}
-				for(let i=left + width; i < left + width + parseInt(this._x_speed / MESH_DIMENSION) ; i++){
-					for(let j=top; j <  top + height; j++){
+				for(let i=left + width; i <= left + width + parseInt(this._x_speed / MESH_DIMENSION) ; i++){
+					for(let j=top; j <=  top + height; j++){
 						if(i > 0) mesh[i][j] = 0;
 					}
 				}
 			}
+		}
+		if(callback != undefined){
+			this._interval = setInterval(callback,50);
+			console.log("cistim prije pada");
 		}
 	}
 	check_collision_down(){
@@ -246,26 +250,27 @@ class Goblin extends Enemy{
 			//console.log(x,y,this.world._mesh[x][y + parseInt(this._height / MESH_DIMENSION) + 2],this.world._mesh);
 			if(this.world._mesh[x][y + parseInt(this._height / MESH_DIMENSION) + 2] === 0){
 				clearInterval(this._interval);
-				this._interval = setInterval(this.fall.bind(this),50);
-				this.updateMeshPositionToZero();
+				this.updateMeshPositionToZero(this.fall.bind(this));
 			}
 		}
 		else if(this.direction === -1){
 			//console.log(x,y,this.world._mesh[x + parseInt(this._width/ MESH_DIMENSION)][y + parseInt(this._height / MESH_DIMENSION) + 2], this.world._mesh);
 			if(this.world._mesh[x + parseInt(this._width/ MESH_DIMENSION)][y + parseInt(this._height / MESH_DIMENSION) + 2] === 0){
 				clearInterval(this._interval);
-				this._interval = setInterval(this.fall.bind(this),50);
 				this.updateMeshPositionToZero();
+				this._interval = setInterval(this.fall.bind(this),50);
+
 			}
 		}
 
 	}
 	fall(){
+		this.updateMeshPositionToZero();
 		let y = this._y_position;
 		y = y + this.world._g_force;
 		this._css_id.style.top = `${y}px`;
 		this._y_position = y;
-		if(this._y_position > 1000){
+		if(this._y_position > 1500){
 			clearInterval(this._interval);
 		}
 		////console.log(this.world._enemy_mesh);
